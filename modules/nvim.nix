@@ -145,6 +145,7 @@ in
         {
           "nvim/init.lua".source = ../config/nvim/init.lua;
           "nvim/lua".source = ../config/nvim/lua;
+          "nvim/after".source = ../config/nvim/after;
         }
         // optionalAttrs cfg.bindLazyLock {
           "nvim/lazy-lock.json".source = ../config/nvim/lazy-lock.json;
