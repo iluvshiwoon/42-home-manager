@@ -7,8 +7,8 @@ let
 	local-themes = ../config/ghostty/themes;
 	merged-themes = pkgs.linkFarm "themes-merged" [
 		{
-			name = "kanso-zen";
-			path = "${kanso}/extras/ghostty/kanso-zen";
+			name = "kanso-pearl";
+			path = "${kanso}/extras/ghostty/kanso-pearl";
 		}
 		{
 			name = "everforest-light";
@@ -23,7 +23,7 @@ programs.ghostty = {
 	enable = true;
 	enableZshIntegration = true;
 	settings = {
-		theme = "rose-pine-dawn";
+		theme = "kanso-pearl";
 	};
 };
 
