@@ -3,7 +3,9 @@
 {
 imports = [
 ./modules/nvim.nix
+./modules/ghostty.nix
 ];
+
 
 programs.neovim.nvimdots = {
 enable = true;
@@ -27,6 +29,7 @@ mergeLazyLock = true;
   # environment.
   home.packages = [
 inputs.zen-browser.packages.${pkgs.system}.default
+pkgs.nix-prefetch-git
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -115,35 +118,26 @@ inputs.zen-browser.packages.${pkgs.system}.default
     shellAliases = {
     };
   };
-
-programs.ghostty = {
+programs.zoxide = {
 	enable = true;
 	enableZshIntegration = true;
-	settings = {
-	theme = "GruvboxLight";
-	#command = "${pkgs.zsh}/bin";
 };
+programs = {
+	direnv = {
+		enable = true;
+		enableZshIntegration = true;
+		nix-direnv.enable = true;
+		config.global.hide_env_diff = true;
+	};
+# zsh.enable = true
 };
-  programs.zoxide = {
-  enable = true;
-    enableZshIntegration = true;
-  };
-  programs = {
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-      config.global.hide_env_diff = true;
-    };
-    # zsh.enable = true
-  };
-  programs.starship = {
-    enable = true;
+programs.starship = {
+	enable = true;
 
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableNushellIntegration = true;
+	enableBashIntegration = true;
+	enableZshIntegration = true;
+	enableNushellIntegration = true;
 
-    settings = builtins.fromTOML (builtins.readFile ./starship.toml);
-  };
+	settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+};
 }
