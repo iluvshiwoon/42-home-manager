@@ -19,6 +19,7 @@ mergeLazyLock = true;
   home.packages = [
 	  inputs.zen-browser.packages.${pkgs.system}.default
 	  pkgs.nix-prefetch-git
+	  pkgs.lua-language-server
   ];
 
   home.file = {

@@ -1,3 +1,3 @@
 require("config.lazy")
-vim.lsp.enable({"luals"})
+require("config.lsp")
 require("config.maps")
