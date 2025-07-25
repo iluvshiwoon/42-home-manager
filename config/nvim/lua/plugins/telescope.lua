@@ -3,11 +3,17 @@ return {
   -- or                              , branch = '0.1.x',
   dependencies = { 'nvim-lua/plenary.nvim',{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' } },
   config = function()
-    vim.keymap.set("n","<space>fd", require('telescope.builtin').find_files)
-    vim.keymap.set("n","<space>en", function ()
-      require('telescope.builtin').find_files {
-	cwd = "~/home-manager/config/nvim/"
+    require('telescope').setup{
+      pickers = {
+	find_files = {
+	  theme = "ivy"
+	}
+      },
+      extensions = {
+	fzf = {}
       }
-    end)
+    }
+    require('telescope').load_extension('fzf')
+    require"config.telescope.multigrep".setup()
   end
 }

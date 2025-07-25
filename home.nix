@@ -1,4 +1,4 @@
-{inputs, config, pkgs, ... }:
+{inputs, pkgs, ... }:
 
 {
 imports = [
@@ -20,6 +20,7 @@ mergeLazyLock = true;
 	  inputs.zen-browser.packages.${pkgs.system}.default
 	  pkgs.nix-prefetch-git
 	  pkgs.lua-language-server
+	  pkgs.nixd
   ];
 
   home.file = {
