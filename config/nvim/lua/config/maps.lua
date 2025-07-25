@@ -14,3 +14,5 @@ vim.keymap.set("n","<space>fh", require('telescope.builtin').help_tags)
 
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
+-- vim.cmd("colorscheme kanso-pearl")
